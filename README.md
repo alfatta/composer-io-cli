@@ -1,4 +1,4 @@
-# Composer.io CLI
+# Compressor.io CLI
 CLI helper for compressing image using compressor.io
 
 ## Version
