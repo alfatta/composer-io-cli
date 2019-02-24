@@ -1,0 +1,15 @@
+{
+  "name": "compressor-io-cli",
+  "version": "0.0.1",
+  "description": "CLI helper for compressing image using compressor.io",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "list": "node file.js"
+  },
+  "author": "Alfatta Rezqa",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
