@@ -1,6 +1,9 @@
 # Composer.io CLI
 CLI helper for compressing image using compressor.io
 
+## Version
+0.1.0
+
 ## Requirement
 This app based on Node Js so you must install Node Js package to run this
 
@@ -29,3 +32,10 @@ npm run start
 and wait until finish
 
 Your compressed image will be appeared in 'destination' folder
+
+## Release Notes
+* 0.1.0 (25/2/19)
+  * Using async each with limit 1
+  * List file give output string not json
+* 0.0.1 (24/2/19)
+  * Initial Release

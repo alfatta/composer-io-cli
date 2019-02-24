@@ -1,5 +1,6 @@
 const fs = require('fs');
 const request = require('request');
+const async = require('async');
 
 const COOKIE = 'PHPSESSID=kj12838j1d982j39j1idj123jd'
 
@@ -33,9 +34,9 @@ fs.readdir('./source', (err, files) => {
   if (!err) {
     const regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.jpeg|.png|.gif|.svg)$");
     const fileList = files.filter(file => regex.test(file.toLowerCase()))
-
-    fileList.forEach(file => {
-      console.log(`Start processing ${file}`)
+    
+    async.eachLimit(fileList, 1, function compress(file, cb) {
+      console.log(`Processing file ${file}`)
       const formData = {
         files: [fs.createReadStream(`./source/${file}`)],
       }
@@ -51,6 +52,7 @@ fs.readdir('./source', (err, files) => {
 
             fs.writeFileSync(path, body);
             console.log(`${file.name} : ${hs(file.size)} -> ${hs(file.sizeAfter)} (${file.percentage}%)`)
+            cb()
           })
         }
       })
