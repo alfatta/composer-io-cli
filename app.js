@@ -46,9 +46,9 @@ fs.readdir('./source', (err, files) => {
           const file = body.files[0]
 
           request(download(file.url), (error, response, body) => {
-            const fileName = file.name.split('.')
-            fileName.splice(1, 0, ' [compressed].')
-            const path = `./destination/${fileName.join('')}`
+            // const fileName = file.name.split('.')
+            // fileName.splice(1, 0, ' [compressed].')
+            const path = `./destination/${file.name}`
 
             fs.writeFileSync(path, body);
             console.log(`${file.name} : ${hs(file.size)} -> ${hs(file.sizeAfter)} (${file.percentage}%)`)
