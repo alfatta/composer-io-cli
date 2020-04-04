@@ -3,3 +3,4 @@ destination/*
 source/*
 !source/.gitkeep
 node_modules
+package-lock.json
